@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		048B1ABB24B2F9DE00113EC3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B1ABA24B2F9DE00113EC3 /* main.swift */; };
+		048B1AC324B2FAE600113EC3 /* PerfectHTTPServer in Frameworks */ = {isa = PBXBuildFile; productRef = 048B1AC224B2FAE600113EC3 /* PerfectHTTPServer */; };
+		048B1AC624B2FB0B00113EC3 /* PerfectSession in Frameworks */ = {isa = PBXBuildFile; productRef = 048B1AC524B2FB0B00113EC3 /* PerfectSession */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +34,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048B1AC324B2FAE600113EC3 /* PerfectHTTPServer in Frameworks */,
+				048B1AC624B2FB0B00113EC3 /* PerfectSession in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +82,10 @@
 			dependencies = (
 			);
 			name = PerfectCORS;
+			packageProductDependencies = (
+				048B1AC224B2FAE600113EC3 /* PerfectHTTPServer */,
+				048B1AC524B2FB0B00113EC3 /* PerfectSession */,
+			);
 			productName = PerfectCORS;
 			productReference = 048B1AB724B2F9DE00113EC3 /* PerfectCORS */;
 			productType = "com.apple.product-type.tool";
@@ -106,6 +114,10 @@
 				Base,
 			);
 			mainGroup = 048B1AAE24B2F9DE00113EC3;
+			packageReferences = (
+				048B1AC124B2FAE600113EC3 /* XCRemoteSwiftPackageReference "Perfect-HTTPServer" */,
+				048B1AC424B2FB0B00113EC3 /* XCRemoteSwiftPackageReference "Perfect-Session" */,
+			);
 			productRefGroup = 048B1AB824B2F9DE00113EC3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,6 +292,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		048B1AC124B2FAE600113EC3 /* XCRemoteSwiftPackageReference "Perfect-HTTPServer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PerfectlySoft/Perfect-HTTPServer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.23;
+			};
+		};
+		048B1AC424B2FB0B00113EC3 /* XCRemoteSwiftPackageReference "Perfect-Session" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PerfectlySoft/Perfect-Session.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		048B1AC224B2FAE600113EC3 /* PerfectHTTPServer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 048B1AC124B2FAE600113EC3 /* XCRemoteSwiftPackageReference "Perfect-HTTPServer" */;
+			productName = PerfectHTTPServer;
+		};
+		048B1AC524B2FB0B00113EC3 /* PerfectSession */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 048B1AC424B2FB0B00113EC3 /* XCRemoteSwiftPackageReference "Perfect-Session" */;
+			productName = PerfectSession;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 048B1AAF24B2F9DE00113EC3 /* Project object */;
 }

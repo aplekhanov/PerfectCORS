@@ -1,12 +1,24 @@
-//
-//  main.swift
-//  PerfectCORS
-//
-//  Created by Jack Sparrow on 7/5/20.
-//  Copyright © 2020 Alexey Plekhanov. All rights reserved.
-//
+import PerfectLib
+import PerfectHTTP
+import PerfectHTTPServer
+import PerfectSession
 
-import Foundation
+private func apiRoutes() -> Routes {
+    var routes = Routes()
+    return routes
+}
 
-print("Hello, World!")
+private func frontendRoutes() -> Routes {
+    var routes = Routes()
+    return routes
+}
 
+
+do {
+    try HTTPServer.launch(
+        .server(name: "apiServer", port: 8000, routes: apiRoutes()),
+        .server(name: "frontend", port: 8080, routes: frontendRoutes())
+    )
+} catch PerfectError.networkError(let err, let msg) {
+    print("Network error thrown: \(err) \(msg)")
+}
