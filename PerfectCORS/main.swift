@@ -6,7 +6,7 @@ import PerfectSession
 
 SessionConfig.CORS.enabled = true
 SessionConfig.CORS.acceptableHostnames = ["*"]
-SessionConfig.CORS.methods = [.get, .post]
+SessionConfig.CORS.methods = [.get, .post, .options]
 
 let sessionDriver = SessionMemoryDriver()
 
