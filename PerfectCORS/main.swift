@@ -3,6 +3,13 @@ import PerfectHTTP
 import PerfectHTTPServer
 import PerfectSession
 
+
+SessionConfig.CORS.enabled = true
+SessionConfig.CORS.acceptableHostnames = ["*"]
+SessionConfig.CORS.methods = [.get, .post]
+
+let sessionDriver = SessionMemoryDriver()
+
 private func apiRoutes() -> Routes {
     var routes = Routes()
     routes.add(method: .get, uri: "/get") { request, response in
@@ -29,7 +36,7 @@ private func frontendRoutes() -> Routes {
 
 do {
     try HTTPServer.launch(
-        .server(name: "apiServer", port: 8000, routes: apiRoutes()),
+        .server(name: "apiServer", port: 8000, routes: apiRoutes(), requestFilters: [sessionDriver.requestFilter]),
         .server(name: "frontend", port: 8080, routes: frontendRoutes())
     )
 } catch PerfectError.networkError(let err, let msg) {
