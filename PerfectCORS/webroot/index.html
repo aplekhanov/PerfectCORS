@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Perfect CORS</title>
+ </head>
+
+<body>
+    <button type="button" id="get_button">GET</button>
+    <button type="button" id="post_button">POST</button>
+    <script>
+            async function getAPI() {
+                const response = await fetch('http://localhost:8000/get');
+                const responseData = await response.json();
+                console.log(responseData)
+                alert(responseData)
+            }
+
+            async function postAPI() {
+                const url = 'http://localhost:8000/post'
+                const data = {
+                    name: 'John Smith'
+                }
+
+                try {
+
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    }, { mode: 'no-cors' });
+
+                    const responseData = await response.json();
+                    alert(responseData);
+                } catch (err) {
+                    alert(err);
+                }
+            }
+
+
+            const getButton = document.getElementById('get_button');
+            getButton.onclick = getAPI;
+
+            const postButton = document.getElementById('post_button');
+            postButton.onclick = postAPI;
+        </script>
+</body>
+
+</html>
