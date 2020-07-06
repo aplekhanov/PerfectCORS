@@ -14,7 +14,6 @@
             async function getAPI() {
                 const response = await fetch('http://localhost:8000/get');
                 const responseData = await response.json();
-                console.log(responseData)
                 alert(responseData)
             }
 
@@ -25,15 +24,13 @@
                 }
 
                 try {
-
                     const response = await fetch(url, {
                         method: 'POST',
                         headers: {
                             'Content-type': 'application/json'
                         },
                         body: JSON.stringify(data)
-                    }, { mode: 'no-cors' });
-
+                    });
                     const responseData = await response.json();
                     alert(responseData);
                 } catch (err) {
@@ -41,10 +38,8 @@
                 }
             }
 
-
             const getButton = document.getElementById('get_button');
             getButton.onclick = getAPI;
-
             const postButton = document.getElementById('post_button');
             postButton.onclick = postAPI;
         </script>
